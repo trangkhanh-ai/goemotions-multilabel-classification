@@ -49,11 +49,16 @@ def download(url, path, expected_hash=None):
             time.sleep(2 ** attempt)
 
 
-def load_goemotions(root):
+def load_goemotions(root, *, write_metadata=True, splits=SPLITS):
     """Trả frames, label_names, manifest; giữ nguyên thứ tự dòng/nhãn gốc."""
     root = Path(root)
+    splits = tuple(splits)
+    if not splits or len(set(splits)) != len(splits) or any(s not in SPLITS for s in splits):
+        raise ValueError("splits phải là danh sách không lặp gồm train/validation/test")
+    if write_metadata and splits != SPLITS:
+        raise ValueError("Chỉ ghi manifest khi đọc đủ ba split chính thức")
     frames, records, label_names = {}, [], None
-    for split in SPLITS:
+    for split in splits:
         filename = f"{split}-00000-of-00001.parquet"
         url = f"https://huggingface.co/datasets/{REPO}/resolve/{REVISION}/simplified/{filename}"
         path = download(url, root / "data/raw" / filename, EXPECTED_SHA256[split])
@@ -74,9 +79,10 @@ def load_goemotions(root):
     manifest = {"repository": REPO, "configuration": "simplified", "revision": REVISION,
                 "verified_at_utc": datetime.now(timezone.utc).isoformat(),
                 "columns": ["text", "labels", "id"], "label_names": label_names, "files": records}
-    (root / "data").mkdir(exist_ok=True)
-    (root / "data/manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
-    (root / "data/labels.json").write_text(json.dumps(label_names, ensure_ascii=False, indent=2), encoding="utf-8")
+    if write_metadata:
+        (root / "data").mkdir(exist_ok=True)
+        (root / "data/manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+        (root / "data/labels.json").write_text(json.dumps(label_names, ensure_ascii=False, indent=2), encoding="utf-8")
     return frames, label_names, manifest
 
 
