@@ -1,5 +1,5 @@
 {
-  "updated": "09/10/2026 07:03 (UTC+7)",
+  "updated": "10/10/2026 15:19 (UTC+7)",
   "format": "IEEE conference two columns; Vietnamese course manuscript, not an IEEE publication",
   "format_sources": [
     {
@@ -75,11 +75,10 @@
   "average_groups": 36,
   "summary_complete": true,
   "summary_sha256": "2c73aa31fad9df0a8b0b46bedbb3c69c1316fa4e225f32529811e80ccd2e09b6",
-  "source_sha256": "ff1fec345ac5e63f79d2f93e44a1f8a83b227da153b006e57a58766e431dc428",
+  "source_sha256": "3007a389a0132ead17226c9210becf1f1a2759fddade3d917c8b335bd6e217df",
   "docx": "D:\\DoAn\\Đồ án NLP\\goemotions-multilabel-classification\\reports\\BAI_BAO_GOEMOTIONS_IEEE.docx",
   "pdf": "D:\\DoAn\\Đồ án NLP\\goemotions-multilabel-classification\\reports\\BAI_BAO_GOEMOTIONS_IEEE.pdf",
   "pdf_status": "exported",
   "no_model_import_or_training": true,
-  "free_memory_mb_before_word": 465.0546875,
-  "training_guard_exception": "Sequential Word export authorized after model processes ended; no concurrent Word export."
+  "free_memory_mb_before_word": 1212.98046875
 }

@@ -75,6 +75,8 @@ Loss trên từng nhãn độc lập cho phép một mẫu có nhiều nhãn dư
 
 C1 có kế hoạch 4 epoch, learning rate 5×10⁻⁵; C2 và C3 là 3 epoch, learning rate 2×10⁻⁵. Mặc định batch size 16, gradient accumulation 1, max_length 128, dynamic padding theo batch, AdamW với weight_decay 0,01, warmup 0,1 và gradient clipping 1,0. Cấu hình thực tế của mỗi run nằm trong metadata. Các lựa chọn learning rate/epoch khác nhau là một giới hạn khi quy nguyên nhân chênh lệch hoàn toàn cho kiến trúc; đây là so sánh các hệ thống được triển khai trong đồ án, chưa phải ablation cô lập mọi yếu tố.
 
+C1 tham khảo thông số BERT trong mục 5.3 của GoEmotions [1]; C2/C3 dùng cấu hình nhóm lựa chọn triển khai. Chín run chính có một cấu hình learning rate/số epoch cho mỗi kiến trúc và ba seed. Nhóm chưa thực hiện tìm kiếm siêu tham số có hệ thống; chọn checkpoint theo validation giữa các epoch không chứng minh đã tối ưu learning rate. Chưa có thí nghiệm để quy lựa chọn của C2 cho gradient explosion hoặc kết luận C3 hội tụ nhanh hơn. So sánh này xét các hệ thống có cấu hình đã khai báo; nghiên cứu riêng tác động kiến trúc cần kiểm soát thêm siêu tham số và ngân sách huấn luyện.
+
 Trong từng seed, chọn checkpoint có Macro-F1 validation @0,5 cao nhất, hòa chọn epoch sớm hơn. Kiến trúc dùng cho D được chọn theo mean Macro-F1 validation @0,5 của đủ ba seed ở cả ba C. Checkpoint đại diện của kiến trúc được chọn tiếp bằng validation theo luật đã lưu; không lấy seed có test cao nhất. Ngưỡng, revision model, hash và đường dẫn run được khóa trong hồ sơ. Đầu ra demo phải thuộc đúng checkpoint/mapping/ngưỡng đã chọn.
 
 ### E. Ngưỡng và quy trình dùng chung
@@ -106,7 +108,7 @@ Python, NumPy, PyTorch CPU/CUDA đều được gieo seed. PyTorch nêu rõ kh�
 ### B. Bảng thực nghiệm theo trạng thái thực tế
 
 <!-- AUTO_RESULTS -->
-**Trạng thái 09/10/2026 07:03 (UTC+7): Đủ hồ sơ benchmark theo summary.** Có 72/72 hàng kết quả và 36/36 nhóm tổng hợp theo thiết kế; C full 9/9, B full đã có. Số hàng phụ thuộc artifact đã hoàn thành, không tính smoke. Dấu — là thiếu/chưa đủ ba seed hoặc không áp dụng, không phải F1=0. A-S là A standard; A-W là A balanced; C1/C2/C3 là BERT/RoBERTa/DistilBERT. Val là validation, N=5.426; Test N=5.427.
+**Trạng thái 10/10/2026 15:19 (UTC+7): Đủ hồ sơ benchmark theo summary.** Có 72/72 hàng kết quả và 36/36 nhóm tổng hợp theo thiết kế; C full 9/9, B full đã có. Số hàng phụ thuộc artifact đã hoàn thành, không tính smoke. Dấu — là thiếu/chưa đủ ba seed hoặc không áp dụng, không phải F1=0. A-S là A standard; A-W là A balanced; C1/C2/C3 là BERT/RoBERTa/DistilBERT. Val là validation, N=5.426; Test N=5.427.
 
 **BẢNG I. SO SÁNH HỆ THỐNG GỐC, NGƯỠNG 0,5.**
 
@@ -293,6 +295,12 @@ Kiểm giao diện lúc 2026-10-08T16:33:39.810Z: PASS, 28/28 hàng score; tươ
 
 A balanced ngưỡng chung trên test đạt Macro-F1 0.4530, cao hơn ngưỡng riêng 0.4493. A standard ngưỡng riêng đạt Micro-F1 0.5330, cao hơn A balanced ngưỡng riêng 0.5277. Vì vậy weighting và ngưỡng riêng không làm mọi metric tăng. Các luật đã khóa trên validation; quan sát test này dùng để báo cáo đánh đổi, không dùng chọn lại cấu hình.
 
+Phân biệt mức chứng cứ: validation tuned F1 đo trên chính validation đã quét ngưỡng; test locked F1 đo trên test với checkpoint và ngưỡng đã khóa. Điểm tuned-validation có thể lạc quan, không dùng thay điểm test hoặc so trực tiếp với test của paper. Việc đánh giá test không cho phép điều chỉnh lại ngưỡng để chọn hàng đẹp hơn.
+
+Ở C1 BERT trên test, mean Micro-Recall tăng từ 0.5322 lên 0.6437, mean Micro-Precision giảm từ 0.6421 xuống 0.5446, mean Hamming Loss tăng từ 0.0318 lên 0.0373 khi chuyển ngưỡng 0,5 sang ngưỡng riêng. Đây là đánh đổi quan sát trên toàn bộ 28 nhãn, không quy toàn bộ thay đổi cho riêng năm nhãn hiếm.
+
+Chiều thay đổi không áp dụng cho mọi hệ thống: A balanced trên test sau tuning có Micro-Precision 0.4561, cao hơn fixed 0.4043, và Hamming Loss 0.0467, thấp hơn fixed 0.0547. Vì vậy không viết rằng tuning luôn tăng Recall hoặc luôn làm Precision/Hamming xấu đi. Báo từng cấu hình và từng nhãn bằng TP/FP/FN, support và P/R/F1; không kết luận cả năm nhãn hiếm đều cải thiện.
+
 Đối chiếu riêng threshold ở A balanced trên test: 4/5 nhãn hiếm giảm F1 khi chuyển fixed→tuned; grief 0.4286→0.4615 (+0.0330); pride 0.4615→0.4167 (-0.0449); relief 0.1333→0.1176 (-0.0157); nervousness 0.2979→0.1714 (-0.1264); embarrassment 0.3333→0.2778 (-0.0556). Bảng standard fixed→balanced tuned là thay đổi kết hợp weighting/ngưỡng, khác ablation này. Ngưỡng tốt trên validation có thể không giữ lợi thế trên test; không quy mọi mức tăng của bảng kết hợp cho threshold.
 
 B zero-shot trên test đạt Macro-F1 0.1035 ở ngưỡng 0,5 và 0.1609 với ngưỡng riêng. Ở ngưỡng 0,5, Micro-Precision 0.0542 thấp trong khi Micro-Recall 0.7148, cho thấy nhiều nhãn dự đoán thừa. Đây là kết quả của checkpoint, taxonomy và template đang dùng; chưa khảo sát prompt/model B khác. Điểm yếu không tự chứng minh lỗi cài đặt hoặc mọi hệ zero-shot đều kém.
@@ -315,6 +323,10 @@ Case Study 4, mục 4.2.3.1, trang in 82–88 trong sách Industrial AI của Ja
 Điểm liên hệ là chuỗi dữ liệu→ước lượng/dự đoán→hành động→giá trị đo được. Trong Case 4, dự báo nhu cầu hỗ trợ vận hành thiết bị phù hợp để tiết kiệm. Trong kịch bản NLP, điểm cảm xúc có thể hỗ trợ nhân viên ưu tiên đọc hoặc tổng hợp xu hướng phản hồi; hành động cuối cùng cần quy tắc vận hành và kiểm tra con người. Nếu không dùng mô hình NLP, nhân viên đọc thủ công hoặc dùng luật từ khóa. Nếu có mô hình, văn bản đi qua biểu diễn/tokenizer, bộ phân loại, ngưỡng rồi giao diện; con người xem lại những câu score gần ngưỡng hoặc cảm xúc nhạy cảm. TF-IDF + LR đã là một phương án có mô hình; luật từ khóa cố định là phương án chưa học tham số từ dữ liệu.
 
 Sách báo cáo tính toán tiết kiệm lịch sử năm 2018 trên 10 máy nén khí hơn 300.000 USD/năm và trên 12 chillers hơn 70.000 USD/năm [20]. Đây là số sách cung cấp, chưa được nhóm kiểm toán độc lập, không phải lợi nhuận của mô hình GoEmotions. Đối với NLP, đo giá trị ứng dụng cần thời gian xử lý phản hồi, độ chính xác ưu tiên, tỷ lệ bỏ sót vấn đề quan trọng, số false alarms, chi phí nhân công/hạ tầng và kết quả xử lý khách hàng. Macro-F1 tăng chỉ phản ánh metric trên dataset; chưa tự chứng minh ROI hoặc mức tiết kiệm.
+
+Ba hướng ứng dụng được đề xuất: (1) hỗ trợ định tuyến/ưu tiên khách hàng bằng cảm xúc kết hợp loại yêu cầu và luật nghiệp vụ, đo tỷ lệ chuyển đúng/sai, thời gian phản hồi và giải quyết; (2) theo dõi tín hiệu khủng hoảng thương hiệu bằng tổng hợp cảm xúc theo thương hiệu/thời gian, đo cảnh báo đúng/sai, bỏ sót và độ trễ phát hiện; (3) giảm công rà soát bình luận bằng gợi ý nhãn để người đọc xác minh, đo thời gian và chất lượng trước/sau. Nếu dùng MTTR, cần định nghĩa mean time to resolution và mốc đo. Một nhãn anger không tự xác nhận khủng hoảng hoặc xác định bộ phận xử lý.
+
+Đây là hướng phát triển chưa được cài hoặc đo tại doanh nghiệp. ROI cần dữ liệu giá trị phần công việc giảm được, chi phí model/tích hợp/vận hành và công sửa dự đoán sai trong cùng kỳ; đồ án không công bố tỷ lệ ROI hoặc số tiền tiết kiệm NLP. Cần thử nghiệm các tập công việc tương đương với tiêu chí chất lượng nhất quán trước khi kết luận tác động nghiệp vụ.
 
 ### C. Giới hạn và hướng tiếp tục
 

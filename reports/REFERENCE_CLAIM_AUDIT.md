@@ -6,6 +6,18 @@
 
 ## 1. Tài liệu đã đối chiếu
 
+**Bổ sung diễn giải ngày 10/10/2026:** hai báo cáo cuối đã thêm ba kịch bản ứng
+dụng dưới dạng đề xuất chưa đo ROI; validation tuned/test locked được tách rõ;
+đánh đổi của BERT và đối chứng A balanced được lấy từ cùng bảng test đã khóa.
+Phần siêu tham số chỉ ghi C1 tham khảo mục 5.3 GoEmotions, C2/C3 là cấu hình
+nhóm; chín run/ba seed không được mô tả thành tìm kiếm learning rate tối ưu.
+Chưa có bằng chứng để quy cấu hình cho gradient explosion hoặc hội tụ nhanh
+hơn. Số trang và checksum của bản xuất hiện tại lấy từ
+`execution/final_report_verification.json`, thay các mốc trang lịch sử ở trên.
+Không thay năm truy cập API thành năm phát hành phần mềm; không tự điền năm
+edition IEEE Reference Guide chưa xác minh được. Căn cứ và phạm vi nguồn đã
+đọc vẫn như bảng bên dưới; lần bổ sung diễn giải không tuyên bố đọc lại mọi PDF.
+
 - `reports/references_ieee.json`: danh mục 26 nguồn của báo cáo sáu chương.
 - `reports/BAO_CAO_DO_AN_NOI_DUNG.md`: các phần dữ liệu, nền tảng, phương pháp, đánh giá, lựa chọn mô hình và giá trị ứng dụng.
 - `reports/BAI_BAO_GOEMOTIONS_IEEE_NOI_DUNG.md`: bản bài viết hai cột; có danh mục riêng 20 nguồn.

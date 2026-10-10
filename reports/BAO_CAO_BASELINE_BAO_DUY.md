@@ -1,7 +1,7 @@
 # Báo cáo tiến độ cá nhân — baseline A
 
 **Người phụ trách:** Bảo Duy Nguyễn — GitHub `dzyuu1612`.
-**Ngày cập nhật:** 09/10/2026; số full và kiểm thử ngày 08/10.
+**Ngày cập nhật:** 10/10/2026; số full ngày 08/10, kiểm mã sau ghép ngày 09/10.
 **Phạm vi:** sản phẩm phần A của đề tài GoEmotions, vai trò A và điều phối B làm
 chung trong nhóm 4 người. B đã có kết quả full; Đức Trí sở hữu RoBERTa C2.
 Danh sách sản phẩm dưới đây giúp bàn giao phần A; nhóm cần xác nhận công việc
@@ -89,9 +89,29 @@ Model và scores theo ID ở `data/processed/baseline/full/` và
 EDA trước đó là đóng góp của đồng đội; không ghi toàn bộ EDA là công của tôi.
 Mã đã push lên fork `dzyuu1612`, mở [PR #3 vào repo chung](https://github.com/trangkhanh-ai/goemotions-multilabel-classification/pull/3),
 PR #3 đã merge 05/10/2026. Phần mở rộng toàn đồ án nằm ở
-[PR #4](https://github.com/trangkhanh-ai/goemotions-multilabel-classification/pull/4).
+[PR #4](https://github.com/trangkhanh-ai/goemotions-multilabel-classification/pull/4);
+ba nội dung khoa học và hai báo cáo cập nhật ngày 10/10 nằm ở
+[PR #5](https://github.com/trangkhanh-ai/goemotions-multilabel-classification/pull/5),
+đang nháp chờ nhóm duyệt.
 Kế hoạch và báo cáo cá nhân cũng có
 [mục riêng của Duy trên Notion](https://app.notion.com/p/3ee7c277690281e693c7f1cf985d569d).
+
+### Nội dung bổ sung ngày 10/10
+
+- Duy cần giải thích riêng validation đã chọn ngưỡng và test dùng ngưỡng khóa.
+  Với A balanced trên test, tuning tăng Micro-Precision 0.4043 → 0.4561,
+  giảm Hamming Loss 0.0547 → 0.0467 nhưng giảm Micro-Recall
+  0.6631 → 0.6260; chiều đánh đổi khác BERT. Không kết luận tuning luôn có
+  một chiều hoặc cả năm nhãn hiếm đều cải thiện.
+- Đã bổ sung ba hướng ứng dụng cùng điều kiện/cách đo ROI vào cả hai báo cáo.
+  Các ứng dụng là đề xuất chưa đo tại doanh nghiệp; số tiết kiệm nhà máy trong
+  Case Study 4 của Lee không phải lợi ích tài chính NLP.
+- Giải thích C1 tham khảo bài GoEmotions; C2/C3 là cấu hình nhóm. Ba seed
+  đo biến động trong cùng cấu hình, chưa chứng minh đã tìm learning rate tối ưu.
+- Báo cáo sáu chương 56 trang và IEEE 8 trang đã xuất lại; kiểm số/trích dẫn
+  và xem 17 trang trọng yếu. Kết quả model/ngưỡng giữ nguyên; không có lượt
+  huấn luyện hay kiểm mã mới ngày 10/10. Chi tiết tại
+  [bản ghi nội dung](CAP_NHAT_NOI_DUNG_10_10_2026.md).
 
 ## Việc còn lại
 

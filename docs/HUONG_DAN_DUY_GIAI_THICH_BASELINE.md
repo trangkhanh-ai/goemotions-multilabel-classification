@@ -194,6 +194,16 @@ mỗi Pipeline được đo theo fixed/global/tuned. Điểm tuned trên chính 
 dùng tìm ngưỡng thường lạc quan; kết luận cải tiến cuối phải xem test sau khóa.
 Không chuyển ngưỡng của standard sang balanced, hoặc từ A sang B/C.
 
+**Giải thích đánh đổi bằng số test, cập nhật 10/10/2026.** Với A balanced,
+tuning làm Micro-Precision tăng 0,4043 → 0,4561, Hamming Loss giảm
+0,0547 → 0,0467 nhưng Micro-Recall giảm 0,6631 → 0,6260. Vì vậy không học
+thuộc câu “tuning luôn tăng Recall và tăng nhãn thừa”. Chiều thay đổi phụ thuộc
+ngưỡng từng nhãn và cấu hình; giải thích bằng bảng đã đo. So standard fixed với
+balanced tuned là thay cả weighting và ngưỡng, không cô lập một kỹ thuật.
+Đọc [ba nội dung cập nhật trong báo cáo](../reports/CAP_NHAT_NOI_DUNG_10_10_2026.md)
+để phân biệt giá trị ứng dụng dự kiến, validation/test và ba seed với tìm kiếm
+siêu tham số.
+
 EDA của nhóm đã xem các split. Câu đúng khi bảo vệ là **“không dùng test để
 fit/chọn mô hình/ngưỡng”**, không nói chưa từng nhìn bất kỳ dữ liệu test nào.
 Trạng thái test hiện tại xem [bảng tổng hợp thực nghiệm](../reports/project_results/RESULTS.md).

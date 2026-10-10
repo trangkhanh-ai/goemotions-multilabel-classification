@@ -45,6 +45,14 @@ validation là các lựa chọn triển khai được khai báo của nhóm. C2
 hình của nhóm. **Không ghi “tái lập chính xác bài gốc” nếu cấu hình khác.**
 Nguồn bài gốc: [GoEmotions, ACL 2020](https://aclanthology.org/2020.acl-main.372/).
 
+**Căn cứ giải thích cập nhật 10/10/2026:** ba seed kiểm tra biến động kết quả trong
+cùng cấu hình, không thay thế tìm kiếm siêu tham số. Hồ sơ chín run chính chưa có
+grid/random search learning rate và epoch; chọn checkpoint qua các epoch trên
+validation là một quyết định khác. Không giải thích C2 bằng gradient explosion
+hoặc C3 bằng hội tụ nhanh hơn khi chưa có thí nghiệm chứng minh. Các C dùng
+learning rate/epoch khác nhau nên chưa cô lập ảnh hưởng kiến trúc. Test đã công bố
+không được dùng chọn lại cấu hình hoặc ngưỡng.
+
 Tokenizer cache mỗi câu tối đa 128 token. Khi tạo batch, `trim_padding_collate`
 bỏ phần padding bên phải sau câu dài nhất trong batch. Không cắt token có
 attention mask=1, không thay nhãn N×28. Config ghi `padding=dynamic_batch_trim`;

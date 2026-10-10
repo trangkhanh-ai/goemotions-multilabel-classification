@@ -1,0 +1,17 @@
+{
+  "revision_date": "2026-10-10",
+  "scope": "Documentation revision only; preserve experiment data and protocol",
+  "baseline_git_commit": "f8b66b04da59c794a9f1cd6123f9d5440192aa7f",
+  "sha256_before": {
+    "reports/project_results/summary.json": "2c73aa31fad9df0a8b0b46bedbb3c69c1316fa4e225f32529811e80ccd2e09b6",
+    "reports/project_results/mean_std.csv": "dd900d7be4e07d1e0cfcd6ec68527ee19b87cde48fa0dfe92cc97befd46c9a2e",
+    "reports/project_results/per_label.csv": "a8d50c08e75faf6645384d996625135ee423bd3ecf87d1cbe54628adf92ede4c",
+    "reports/project_results/rare_before_after.csv": "f882d2da419f694b894bfed8f1f8f8f04ffc6f825d2bae5c157ca3ebc06d9025",
+    "reports/execution/frozen_protocols.json": "8b6d950feccab2ece390f4d213bf3fc4e284a5abe2b92721f6cc7372994984b9",
+    "reports/references_ieee.json": "0f0ad284348a9bc82f48ed013d31c3f3d5b15c29dc1abdb1f6a756ebd8ac7527",
+    "src/neural.py": "da57e190f07fb490417db9e02a58a102f4ee828ba04ad832507104ad6a40e464",
+    "src/baseline.py": "c5d73f4be0f0b98ff46073002aae32cf895b1dbe1da3637a9aca829edac8e02c",
+    "scripts/train_transformer.py": "4a96a73abd496d1990c091d41db3cc068f8fe9be306e68da5ffae5282ad21ac2",
+    "data/processed/transformers/selected_model.json": "1d9d7556b07497976718ff655af78f65cd6a5dd848eb98a2b45a332262ca2872"
+  }
+}

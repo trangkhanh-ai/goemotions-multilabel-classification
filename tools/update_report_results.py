@@ -166,6 +166,9 @@ def observed_tradeoffs(summary):
     if not summary.get("complete"):
         return []
     lookup = {(row["system"], row["split"], row["threshold_mode"]): row for row in summary["averages"]}
+    bert_fixed = lookup[("C_bert", "test", "fixed")]
+    bert_tuned = lookup[("C_bert", "test", "tuned")]
+    balanced_fixed = lookup[("A_balanced", "test", "fixed")]
     standard = lookup[("A_standard", "test", "tuned")]
     global_a = lookup[("A_balanced", "test", "global")]
     tuned_a = lookup[("A_balanced", "test", "tuned")]
@@ -177,6 +180,24 @@ def observed_tradeoffs(summary):
              f"{direction_micro} A balanced ngưỡng riêng {tuned_a['micro_f1_mean']:.4f}. "
              "Vì vậy weighting và ngưỡng riêng không làm mọi metric tăng. Các luật đã khóa trên validation; "
              "quan sát test này dùng để báo cáo đánh đổi, không dùng chọn lại cấu hình."]
+    lines += [
+        "Phân biệt mức chứng cứ: validation tuned F1 đo trên chính validation đã quét ngưỡng; "
+        "test locked F1 đo trên test với checkpoint và ngưỡng đã khóa. Điểm tuned-validation có thể lạc quan, "
+        "không dùng thay điểm test hoặc so trực tiếp với test của paper. Việc đánh giá test không cho phép "
+        "điều chỉnh lại ngưỡng để chọn hàng đẹp hơn.",
+        f"Ở C1 BERT trên test, mean Micro-Recall tăng từ {bert_fixed['micro_recall_mean']:.4f} "
+        f"lên {bert_tuned['micro_recall_mean']:.4f}, mean Micro-Precision giảm từ "
+        f"{bert_fixed['micro_precision_mean']:.4f} xuống {bert_tuned['micro_precision_mean']:.4f}, "
+        f"mean Hamming Loss tăng từ {bert_fixed['hamming_loss_mean']:.4f} "
+        f"lên {bert_tuned['hamming_loss_mean']:.4f} khi chuyển ngưỡng 0,5 sang ngưỡng riêng. "
+        "Đây là đánh đổi quan sát trên toàn bộ 28 nhãn, không quy toàn bộ thay đổi cho riêng năm nhãn hiếm.",
+        f"Chiều thay đổi không áp dụng cho mọi hệ thống: A balanced trên test sau tuning có Micro-Precision "
+        f"{tuned_a['micro_precision_mean']:.4f}, cao hơn fixed {balanced_fixed['micro_precision_mean']:.4f}, "
+        f"và Hamming Loss {tuned_a['hamming_loss_mean']:.4f}, thấp hơn fixed "
+        f"{balanced_fixed['hamming_loss_mean']:.4f}. Vì vậy không viết rằng tuning luôn tăng Recall "
+        "hoặc luôn làm Precision/Hamming xấu đi. Báo từng cấu hình và từng nhãn bằng TP/FP/FN, "
+        "support và P/R/F1; không kết luận cả năm nhãn hiếm đều cải thiện."
+    ]
     per_label_path = ROOT / "reports/project_results/per_label.csv"
     if per_label_path.exists():
         with per_label_path.open(encoding="utf-8-sig", newline="") as stream:

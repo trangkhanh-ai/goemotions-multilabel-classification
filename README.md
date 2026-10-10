@@ -7,7 +7,7 @@ Ba kiến trúc C có đủ **9 run = 3 kiến trúc × 3 seed**; bảng có **7
 36 dòng tổng hợp**, `complete=true`, `missing=[]`. Mã/báo cáo theo mẫu sáu chương
 của cô, trích dẫn IEEE; số cuối lấy từ artifacts, không lấy smoke làm benchmark.
 
-[PR #4 — phần mở rộng code và báo cáo, đang ở trạng thái nháp](https://github.com/trangkhanh-ai/goemotions-multilabel-classification/pull/4).
+[PR #5 — cập nhật nội dung khoa học và hai báo cáo, đang ở trạng thái nháp](https://github.com/trangkhanh-ai/goemotions-multilabel-classification/pull/5).
 Demo dùng **BERT cased seed 123**, chọn theo validation, đã kiểm suy luận và UI thật.
 Nhóm còn tự đọc/bảo vệ, điền thông tin hành chính và đóng góp thực tế, kiểm/nộp báo cáo.
 
@@ -38,6 +38,13 @@ Demo riêng của Huy được giữ ở [app_distilbert_huy.py](app_distilbert_
 Báo cáo sáu chương giữ bố cục mẫu cô. Bài hai cột dùng định dạng bài báo IEEE;
 số liệu từng bản theo trạng thái tại thời điểm xuất. Bảng full hiện đã đầy đủ;
 thông tin hành chính và bảng đóng góp vẫn cần nhóm xác nhận.
+
+**Cập nhật nội dung 10/10/2026:** hai báo cáo cuối bổ sung ba hướng ứng dụng và
+cách đo ROI, phân biệt validation tuned/test locked, phân tích đánh đổi bằng
+số test cùng đối chứng A balanced, và căn cứ learning rate/epoch. Chưa có tìm
+kiếm siêu tham số có hệ thống hoặc ROI doanh nghiệp; không suy ba seed thành
+tối ưu learning rate. Đọc [bản ghi cập nhật](reports/CAP_NHAT_NOI_DUNG_10_10_2026.md)
+và [hồ sơ Word/PDF](reports/execution/final_report_verification.json).
 Đồng bộ các bản sau khi tổng hợp artifacts: `python tools/update_report_results.py`,
 `python tools/build_report_docx.py --pdf`, `python tools/build_ieee_paper.py --pdf`
 và `python tools/build_progress_reports.py --pdf` trong môi trường tạo tài liệu.

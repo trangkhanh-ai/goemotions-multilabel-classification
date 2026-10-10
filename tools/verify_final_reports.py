@@ -101,6 +101,20 @@ def inspect(name, source_name, expected_refs):
             selected_test_mean_std=all(value in full_compact for value in ("0.4720±0.0045", "0.5038±0.0097")),
             micro_tradeoff_kept="0.6048" in full and "0.5900" in full,
         )
+    if name in ("BAO_CAO_DO_AN_GOEMOTIONS_IEEE", "BAI_BAO_GOEMOTIONS_IEEE"):
+        checks.update(
+            three_application_scenarios=all(compact(term) in full_compact for term in
+                ("định tuyến", "khủng hoảng thương hiệu", "rà soát bình luận", "MTTR")),
+            hyperparameter_search_not_claimed=compact("chưa thực hiện tìm kiếm siêu tham số có hệ thống") in full_compact,
+            validation_test_roles_explicit=all(compact(term) in full_compact for term in
+                ("validation tuned F1", "test locked F1")),
+            observed_bert_precision_recall_hamming=all(value in full for value in
+                ("0.5322", "0.6437", "0.6421", "0.5446", "0.0318", "0.0373")),
+            balanced_counterexample_kept=all(value in full for value in
+                ("0.4043", "0.4561", "0.0547", "0.0467")),
+            roi_not_measured=compact("chưa có dữ liệu để điền tỷ lệ ROI") in full_compact
+                or compact("không công bố tỷ lệ ROI") in full_compact,
+        )
     if (ROOT / "docs/TICH_HOP_C3_NHAT_HUY.md").exists() and name in ("BAO_CAO_DO_AN_GOEMOTIONS_IEEE", "BAO_CAO_TIEN_DO_2"):
         verification = json.loads((REPORTS / "verification_project.json").read_text(encoding="utf-8"))
         tests = verification.get("post_merge_unit_tests", {})
@@ -118,6 +132,10 @@ def inspect(name, source_name, expected_refs):
         keywords = (("results", "A_standard"), ("roles", "Phân công" if name.endswith("1") else "Vai trò"))
     if name in ("BAO_CAO_DO_AN_GOEMOTIONS_IEEE", "BAO_CAO_TIEN_DO_2"):
         keywords += (("huy_integration", "3acdfc6"),)
+    if name in ("BAO_CAO_DO_AN_GOEMOTIONS_IEEE", "BAI_BAO_GOEMOTIONS_IEEE"):
+        keywords += (("hyperparameter_basis", "chưa thực hiện tìm kiếm siêu tham số có hệ thống"),
+                     ("threshold_tradeoff", "test locked F1"),
+                     ("applications_roi", "MTTR"))
     for label, keyword in keywords:
         candidates = [index for index, text in enumerate(page_texts) if compact(keyword) in compact(text)]
         if candidates:
@@ -158,6 +176,18 @@ def main():
                    "Huy's three-seed C3 validation study is separate from the main C3 study; never pool six seeds or substitute validation for test.",
                    "No model, GPU, new inference, training or Word export performed by this verification script."],
     }
+    revision_path = REPORTS / "execution/scientific_revision_before_10_10_2026.json"
+    if revision_path.exists():
+        revision = json.loads(revision_path.read_text(encoding="utf-8"))
+        unchanged = {path: digest(ROOT / path) == expected
+                     for path, expected in revision["sha256_before"].items()}
+        evidence["scientific_content_revision"] = {
+            "client_date": "2026-10-10", "timezone": "Asia/Bangkok",
+            "scope": "Applications/ROI, validation/test tradeoffs and hyperparameter evidence in both final reports",
+            "experiment_and_source_unchanged": all(unchanged.values()), "checks": unchanged,
+            "before_record": str(revision_path.relative_to(ROOT)),
+        }
+        evidence["automatic_checks_passed"] = evidence["automatic_checks_passed"] and all(unchanged.values())
     target = REPORTS / "execution/final_report_verification.json"
     target.write_text(json.dumps(evidence, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps({"evidence": str(target), "automatic_checks_passed": evidence["automatic_checks_passed"],
@@ -166,6 +196,8 @@ def main():
                 for report in reports if not report["checks_passed"]}
     if failures:
         raise SystemExit(json.dumps(failures, ensure_ascii=False))
+    if not evidence["automatic_checks_passed"]:
+        raise SystemExit("Experiment/protocol/source hashes changed during documentation revision")
 
 
 if __name__ == "__main__":

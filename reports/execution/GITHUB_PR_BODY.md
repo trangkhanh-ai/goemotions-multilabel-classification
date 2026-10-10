@@ -14,7 +14,7 @@ Tiếp tục đồ án GoEmotions theo yêu cầu giảng viên sau khi PR #3 đ
 
 Đã hoàn tất **9/9 run C full**, A/B validation và test sau khóa protocol; **72 bản ghi, 36 nhóm tổng hợp, missing=[]**. D dùng **BERT seed123**, chọn bằng validation. PR đang chờ nhóm review/merge, không dùng smoke thay benchmark.
 
-**77/77 tests PASS** sau ghép code chung, 12.936s. Notebook A12/12, B4/4, C7/7 ô mã đã chạy; source hướng dẫn/code giữ nguyên. Demo đã đối chiếu checkpoint trên ba câu validation/28scores và kiểm UI thật HTTP200, nút bấm, 28/28 hàng, screenshot có checksum. Không cộng các lượt kiểm lịch sử thành số tests mới.
+**77/77 tests PASS** sau ghép code chung ngày 09/10/2026, 12.936s. Notebook A12/12, B4/4, C7/7 ô mã đã chạy; source hướng dẫn/code giữ nguyên. Demo đã đối chiếu checkpoint trên ba câu validation/28scores và kiểm UI thật HTTP200, nút bấm, 28/28 hàng, screenshot có checksum. Đây là bằng chứng đã lưu; lần sửa báo cáo ngày 10/10 không chạy lại model/tests hoặc cộng các lượt kiểm lịch sử thành số tests mới.
 
 ## Kết quả test chính
 
@@ -31,13 +31,21 @@ Giữ kết quả bất lợi: balanced ngưỡng chung có test Macro hơn ngư
 
 ## Bản bàn giao và tích hợp kho chung
 
-- Báo cáo sáu chương theo mẫu cô **55 trang**, IEEE hai cột **8 trang**, tiến độ1/2 **5/10 trang**: DOCX/PDF thật, QA văn bản mọi trang/nguồn/case/std, xem các trang quan trọng, lưu SHA.
+- Báo cáo sáu chương theo mẫu cô **56 trang**, IEEE hai cột **8 trang** đã xuất lại ngày 10/10; tiến độ1/2 giữ bản lịch sử **5/10 trang**. QA văn bản mọi trang/nguồn/case/std, xem 17 trang trọng yếu vừa đổi và giữ hồ sơ checksum cho các trang/PDF không đổi.
 - Nguồn chính GoEmotions ACL2020; 26 nguồn trong báo cáo/20 trong bài hai cột. Case Study4 Lee2020 đã đối chiếu; không chuyển số tiết kiệm năng lượng thành ROI NLP.
 - 95 JSON metadata và1CSV giữ đúng byte/hash qua Git; nguồn/history/revision/protocol được giữ, training commit không được suy từ export commit.
-- Kiểm thêm 40 tệp nguồn báo cáo/Word/PDF/ảnh, tổng hợp kết quả, log tests và notebook: SHA trong hồ sơ trùng tệp cục bộ và blob Git. Tham chiếu phân tích lỗi đã sửa thành `reports/errors_test_standard_fixed/counts.csv` và xuất lại PDF sáu chương.
+- Kiểm byte nguồn báo cáo/Word/PDF/ảnh, tổng hợp kết quả, log tests và notebook trong `reports/execution/delivery_artifact_bytes_10_10_2026.json`; giữ hồ sơ cũ. Tham chiếu phân tích lỗi dùng `reports/errors_test_standard_fixed/counts.csv`.
 - Đã đồng bộ `origin/main` `3acdfc6`; giữ nghiên cứu C3 Nhật Huy riêng. 79 tệp config/notebook/bằng chứng Huy và demo đổi tên giữ nguyên byte.
 - `app.py` là best-C Gradio; `app_distilbert_huy.py` là demo Streamlit riêng, verifier/hướng dẫn đã đổi tên. Hai C3 khác trainer/môi trường/protocol không cộng thành sáu seed hoặc dùng validation làm test; Streamlit riêng chưa suy luận lại trên máy hiện tại.
-- Notion kế hoạch nhóm/mụcDuy đã cập nhật các đoạn có sẵn; bảng mở rộng lưu Markdown vì workspace hết block tạo mới.
+- Notion kế hoạch nhóm/mụcDuy đã cập nhật ba nội dung khoa học ngày 10/10, đọc lại xác nhận các đoạn sửa và trang con; bản ghi ở `reports/NOTION_CAP_NHAT_10_10_2026.md` và `reports/execution/notion_scientific_revision_10_10_2026.json`.
+
+## Cập nhật nội dung khoa học ngày 10/10/2026
+
+1. Giá trị ứng dụng: ba kịch bản hỗ trợ khách hàng, tín hiệu khủng hoảng thương hiệu và giảm công rà soát bình luận; định nghĩa MTTR, cách đo chi phí/ROI. Đây là đề xuất chưa triển khai/đo trong doanh nghiệp. Case Study 4 của Lee được giữ riêng, không chuyển số tiết kiệm nhà máy thành lợi nhuận NLP.
+2. Đánh giá: tách validation tuned F1 và test locked F1. BERT tuning có Recall 0.5322→0.6437, Precision 0.6421→0.5446, Hamming 0.0318→0.0373; A balanced có chiều thay đổi khác. Giữ nhãn giảm F1, không quy thay đổi tổng thể cho riêng năm nhãn hiếm hoặc chọn lại ngưỡng bằng test.
+3. Siêu tham số: BERT tham khảo mục 5.3 GoEmotions; RoBERTa/DistilBERT là cấu hình nhóm. Chín run/ba seed không phải tìm kiếm learning rate có hệ thống; không thêm giải thích gradient explosion/hội tụ nhanh khi thiếu thí nghiệm.
+
+Hai nguồn Markdown, công cụ sinh nhận xét, hướng dẫn đọc và hai bản DOCX/PDF được đồng bộ. Mười hash của kết quả/ngưỡng/config/model-source giữ nguyên so với trước sửa; danh mục nguồn và hồ sơ kiểm 09/10 được giữ. Phạm vi lần này không điền thông tin hành chính hoặc thay phân công.
 
 ## Tệp để đọc
 
@@ -45,6 +53,7 @@ Giữ kết quả bất lợi: balanced ngưỡng chung có test Macro hơn ngư
 - `docs/THU_TU_DOC_DO_AN.md` và `docs/REPRODUCIBILITY.md`
 - `reports/project_results/RESULTS.md`
 - `reports/REFERENCE_CLAIM_AUDIT.md`
+- `reports/CAP_NHAT_NOI_DUNG_10_10_2026.md`
 - `reports/BAO_CAO_DO_AN_GOEMOTIONS_IEEE.docx` / `.pdf`
 - `reports/BAI_BAO_GOEMOTIONS_IEEE.docx` / `.pdf`
 

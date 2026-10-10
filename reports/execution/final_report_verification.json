@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-10-09T07:35:09.530862+00:00",
+  "checked_at_utc": "2026-10-10T08:21:25.601033+00:00",
   "scope": "Actual DOCX structure, actual PDF text/pages, source citation order, targeted rendered page previews.",
   "summary": {
     "complete": true,
@@ -12,8 +12,8 @@
     {
       "name": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
       "source": "BAO_CAO_DO_AN_NOI_DUNG.md",
-      "pdf_pages": 55,
-      "docx_tables": 25,
+      "pdf_pages": 56,
+      "docx_tables": 26,
       "docx_images": 7,
       "section_columns": [
         1,
@@ -72,6 +72,12 @@
         "rare_negative_kept": true,
         "selected_test_mean_std": true,
         "error_group_counts_reference": true,
+        "three_application_scenarios": true,
+        "hyperparameter_search_not_claimed": true,
+        "validation_test_roles_explicit": true,
+        "observed_bert_precision_recall_hamming": true,
+        "balanced_counterexample_kept": true,
+        "roi_not_measured": true,
         "huy_delivery_acknowledged": true,
         "two_c3_studies_separate": true,
         "no_six_seed_pooling": true,
@@ -82,18 +88,18 @@
       "artifacts": [
         {
           "path": "reports\\BAO_CAO_DO_AN_NOI_DUNG.md",
-          "bytes": 108955,
-          "sha256": "d7d662aaab7765e4992ed55c3283901e931b0821a9eefc5129236d33290ecb6c"
+          "bytes": 114560,
+          "sha256": "08b272459c847ea44fdf86fbd1b1e3cb695054e3b0fd952591aaa9df3f4030a6"
         },
         {
           "path": "reports\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE.docx",
-          "bytes": 796921,
-          "sha256": "b0d6c321464538b99da5971baedbdf7d53be88d99da2650387c4c7318d4b794d"
+          "bytes": 798690,
+          "sha256": "2d50cbef9a932c69d54fdd2dc13e47e24b2be170ac236cf428246813eb0faafb"
         },
         {
           "path": "reports\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE.pdf",
-          "bytes": 5290185,
-          "sha256": "bfd43fb242dedbb1c290e965d86515b3e5ebd014f491cd48fee98ae4bb599b2a"
+          "bytes": 5300427,
+          "sha256": "2b40bcfadf032995c3f7db3e7d2ef4c3e9a8ba9f8befe020a22d732f252d1481"
         }
       ],
       "previews": [
@@ -107,43 +113,67 @@
           "page": 30,
           "label": "comparison",
           "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_comparison_p30.png",
-          "sha256": "87e79f3f193e1835ab0c023eb85850dda1ea897583e171dfb03cfe999001d7b0"
+          "sha256": "c2437ae4dbb23d5ecfaa7eb62b54cf20f38def2246347c8e8991f2efe4e885a2"
         },
         {
           "page": 34,
           "label": "cases",
           "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_cases_p34.png",
-          "sha256": "5a515f55cf85c3ba2af97f784a3fc3e9a2f276a2eabd0944897311136dffdea6"
+          "sha256": "b9a0a124d181fc1e3c8b9e584df1663db208e6428c154f0ed1029f67ba3cb409"
         },
         {
           "page": 41,
           "label": "demo",
           "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_demo_p41.png",
-          "sha256": "f7082f3d0eb1e4c8cb4f9788145da5a61ae88475b28c2353836893ef6e969881"
+          "sha256": "1c932237a6b93a12776e2950baab474b6a86099c8c3cb3b8b513ded96326817d"
         },
         {
-          "page": 48,
+          "page": 49,
           "label": "references",
-          "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_references_p48.png",
-          "sha256": "a305fe40ea930baa5e3cf7580e6d217e7ebba448cc51de0438647835f62f7d6e"
-        },
-        {
-          "page": 54,
-          "label": "huy_integration",
-          "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_huy_integration_p54.png",
-          "sha256": "fc827b784ef466600e869930cbbb8e09fc065e917b99877bc31eb09d23a1b57f"
-        },
-        {
-          "page": 36,
-          "label": "counts_reference",
-          "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_counts_reference_p36.png",
-          "sha256": "59a1692fc7660d91602412be3afdba2bb5aac056a8da794d3094d15b1a32b1c5"
+          "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_references_p49.png",
+          "sha256": "e9f0cec942351fc31fd8cbf48e47b3d240ea81a1f44d3842be11eb158e979066"
         },
         {
           "page": 55,
-          "label": "integration_continuation",
-          "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_integration_continuation_p55.png",
-          "sha256": "0df97d1a46b774d5ed977cd98222970ec5a46bb90e2cc87d20097234d199b4d2"
+          "label": "huy_integration",
+          "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_huy_integration_p55.png",
+          "sha256": "480c4c5280bbab3a51bfe72bbac9ebfb83afb4a718a55ea3c784e8528579e64c"
+        },
+        {
+          "page": 25,
+          "label": "hyperparameter_basis",
+          "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_hyperparameter_basis_p25.png",
+          "sha256": "17ddeef07c0b97112bb844fe52918af809e90f71cf2afedb6d91f669e75b4bcb"
+        },
+        {
+          "page": 42,
+          "label": "threshold_tradeoff",
+          "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_threshold_tradeoff_p42.png",
+          "sha256": "d4bcc3f9d462ca3ff4879d9333283c0a6787015d2328de892aecb1d399f60512"
+        },
+        {
+          "page": 46,
+          "label": "applications_roi",
+          "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_applications_roi_p46.png",
+          "sha256": "babd9f07999d6adf22ae24a09a12b9a86aa7a8fa98fb008658b0c62bf7f3ba66"
+        },
+        {
+          "page": 26,
+          "label": "hyperparameter_continuation",
+          "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_hyperparameter_continuation_p26.png",
+          "sha256": "bac8bc891c81b20d54e0cc29ca1a176351216256991e3b2ac67b3763c6102d6b"
+        },
+        {
+          "page": 47,
+          "label": "roi_continuation",
+          "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_roi_continuation_p47.png",
+          "sha256": "ca7aa4381a394dd37630252133feaef013a707b08478d227325e3b01e454e1c6"
+        },
+        {
+          "page": 56,
+          "label": "huy_continuation",
+          "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_huy_continuation_p56.png",
+          "sha256": "d868bed3a6532be3aed6a93ff67a5ebce669e0b4adc53ade53f2b71ad1284df6"
         }
       ]
     },
@@ -202,24 +232,30 @@
         "real_case_ids": true,
         "rare_negative_kept": true,
         "selected_test_mean_std": true,
-        "micro_tradeoff_kept": true
+        "micro_tradeoff_kept": true,
+        "three_application_scenarios": true,
+        "hyperparameter_search_not_claimed": true,
+        "validation_test_roles_explicit": true,
+        "observed_bert_precision_recall_hamming": true,
+        "balanced_counterexample_kept": true,
+        "roi_not_measured": true
       },
       "checks_passed": true,
       "artifacts": [
         {
           "path": "reports\\BAI_BAO_GOEMOTIONS_IEEE_NOI_DUNG.md",
-          "bytes": 52285,
-          "sha256": "ff1fec345ac5e63f79d2f93e44a1f8a83b227da153b006e57a58766e431dc428"
+          "bytes": 55478,
+          "sha256": "3007a389a0132ead17226c9210becf1f1a2759fddade3d917c8b335bd6e217df"
         },
         {
           "path": "reports\\BAI_BAO_GOEMOTIONS_IEEE.docx",
-          "bytes": 57801,
-          "sha256": "4cc5e62175f5d2020b827c347b4275c8f7295dd36b362fa403ed4aee0e0f6c56"
+          "bytes": 58900,
+          "sha256": "f8cf56118339ed96c564c0092016d9b69553ca72ab36387793c408dc74f0af57"
         },
         {
           "path": "reports\\BAI_BAO_GOEMOTIONS_IEEE.pdf",
-          "bytes": 4381128,
-          "sha256": "ad975e2164db621cb48297ac307d4d5429065b714181bd7a2504fec060db26cc"
+          "bytes": 4384300,
+          "sha256": "e167f67515554cbd0aff42ab8e1688f4be1fe8e8e8908e148ec50c57210d17a1"
         }
       ],
       "previews": [
@@ -233,19 +269,37 @@
           "page": 4,
           "label": "comparison",
           "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_comparison_p4.png",
-          "sha256": "29db0eed4e15c89c4df0078fba08ee28426fc280a315161f90a2e0d3a24ed45a"
+          "sha256": "6663790316abee5aa7917aa3e9fa4f16befcb3a9525345688c2c6cd0c810e921"
         },
         {
           "page": 5,
           "label": "cases",
           "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_cases_p5.png",
-          "sha256": "ae48ff412c674dd207ea948443d5180f767c4e4ad88a05654c0e3b201ebefa35"
+          "sha256": "c78f7e0b71ee4497417c25f372bf1bc8d9f6c8ece2aaa7738c585c8ee79fdd4e"
+        },
+        {
+          "page": 8,
+          "label": "references",
+          "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_references_p8.png",
+          "sha256": "9f239a2624e490719497aef1545e7a5928bcb4bb3987246eace64ccaad29bdd0"
+        },
+        {
+          "page": 3,
+          "label": "hyperparameter_basis",
+          "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_hyperparameter_basis_p3.png",
+          "sha256": "0e5db4bb9c146c4ca668d0b6cba33cbc48c104c8ca13bc07704f1f90a2498f88"
+        },
+        {
+          "page": 6,
+          "label": "threshold_tradeoff",
+          "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_threshold_tradeoff_p6.png",
+          "sha256": "a85b57ba30c25d0c1cbe4d8034ff2214728ea3e6365c9633a2c5eac252b758fe"
         },
         {
           "page": 7,
-          "label": "references",
-          "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_references_p7.png",
-          "sha256": "9482f9c1df872397d11f3350401a1b0a64cfec9658e2935307c5044a82c77b8e"
+          "label": "applications_roi",
+          "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_applications_roi_p7.png",
+          "sha256": "c7f038702ad0eb4be36971cb72e498e837d3f10596c779a371e3f8f2776911f3"
         }
       ]
     },
@@ -410,22 +464,216 @@
   ],
   "automatic_checks_passed": true,
   "visual_review": {
-    "status": "reviewed_targeted_pages_after_counts_reference_fix",
-    "reviewed_at_utc": "2026-10-09T07:36:32.345465+00:00",
-    "tool": "view_image on actual PDF page renders",
-    "newly_viewed_pages": {
-      "BAO_CAO_DO_AN_GOEMOTIONS_IEEE": [
-        36,
-        54,
-        55
-      ]
-    },
-    "carried_review_record": "reports/execution/final_report_verification_before_counts_fix.json",
-    "carried_review_record_sha256": "70b358e16e0524187ef8e39f4eebed32878c0b8a40febcd9591eaddd3b128f64",
-    "carry_basis": "Every regenerated preview matches the previously viewed image SHA-256. IEEE PDF and both progress PDFs have unchanged SHA-256.",
-    "preview_comparison": "reports/execution/final_page_review_comparison.json",
-    "findings": "The corrected counts.csv reference, rare-label table, Huy handover acknowledgement, separate C3 validation results and 77/77 tests are readable. Other targeted page renders retain the exact reviewed image hashes.",
-    "limits": "Targeted visual review, not a claim of visual proofreading of every page. Automatic PDF text checks cover every page."
+    "status": "reviewed_targeted_pages_scientific_revision",
+    "client_date": "2026-10-10",
+    "recorded_at_utc": "2026-10-10T08:29:04.726571+00:00",
+    "pages_opened_this_revision": [
+      {
+        "report": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
+        "page": 30,
+        "label": "comparison",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_comparison_p30.png",
+        "sha256": "c2437ae4dbb23d5ecfaa7eb62b54cf20f38def2246347c8e8991f2efe4e885a2",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
+        "page": 34,
+        "label": "cases",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_cases_p34.png",
+        "sha256": "b9a0a124d181fc1e3c8b9e584df1663db208e6428c154f0ed1029f67ba3cb409",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
+        "page": 41,
+        "label": "demo",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_demo_p41.png",
+        "sha256": "1c932237a6b93a12776e2950baab474b6a86099c8c3cb3b8b513ded96326817d",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
+        "page": 49,
+        "label": "references",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_references_p49.png",
+        "sha256": "e9f0cec942351fc31fd8cbf48e47b3d240ea81a1f44d3842be11eb158e979066",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
+        "page": 55,
+        "label": "huy_integration",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_huy_integration_p55.png",
+        "sha256": "480c4c5280bbab3a51bfe72bbac9ebfb83afb4a718a55ea3c784e8528579e64c",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
+        "page": 25,
+        "label": "hyperparameter_basis",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_hyperparameter_basis_p25.png",
+        "sha256": "17ddeef07c0b97112bb844fe52918af809e90f71cf2afedb6d91f669e75b4bcb",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
+        "page": 42,
+        "label": "threshold_tradeoff",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_threshold_tradeoff_p42.png",
+        "sha256": "d4bcc3f9d462ca3ff4879d9333283c0a6787015d2328de892aecb1d399f60512",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
+        "page": 46,
+        "label": "applications_roi",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_applications_roi_p46.png",
+        "sha256": "babd9f07999d6adf22ae24a09a12b9a86aa7a8fa98fb008658b0c62bf7f3ba66",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
+        "page": 26,
+        "label": "hyperparameter_continuation",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_hyperparameter_continuation_p26.png",
+        "sha256": "bac8bc891c81b20d54e0cc29ca1a176351216256991e3b2ac67b3763c6102d6b",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
+        "page": 47,
+        "label": "roi_continuation",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_roi_continuation_p47.png",
+        "sha256": "ca7aa4381a394dd37630252133feaef013a707b08478d227325e3b01e454e1c6",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
+        "page": 56,
+        "label": "huy_continuation",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_huy_continuation_p56.png",
+        "sha256": "d868bed3a6532be3aed6a93ff67a5ebce669e0b4adc53ade53f2b71ad1284df6",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAI_BAO_GOEMOTIONS_IEEE",
+        "page": 4,
+        "label": "comparison",
+        "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_comparison_p4.png",
+        "sha256": "6663790316abee5aa7917aa3e9fa4f16befcb3a9525345688c2c6cd0c810e921",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAI_BAO_GOEMOTIONS_IEEE",
+        "page": 5,
+        "label": "cases",
+        "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_cases_p5.png",
+        "sha256": "c78f7e0b71ee4497417c25f372bf1bc8d9f6c8ece2aaa7738c585c8ee79fdd4e",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAI_BAO_GOEMOTIONS_IEEE",
+        "page": 8,
+        "label": "references",
+        "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_references_p8.png",
+        "sha256": "9f239a2624e490719497aef1545e7a5928bcb4bb3987246eace64ccaad29bdd0",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAI_BAO_GOEMOTIONS_IEEE",
+        "page": 3,
+        "label": "hyperparameter_basis",
+        "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_hyperparameter_basis_p3.png",
+        "sha256": "0e5db4bb9c146c4ca668d0b6cba33cbc48c104c8ca13bc07704f1f90a2498f88",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAI_BAO_GOEMOTIONS_IEEE",
+        "page": 6,
+        "label": "threshold_tradeoff",
+        "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_threshold_tradeoff_p6.png",
+        "sha256": "a85b57ba30c25d0c1cbe4d8034ff2214728ea3e6365c9633a2c5eac252b758fe",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      },
+      {
+        "report": "BAI_BAO_GOEMOTIONS_IEEE",
+        "page": 7,
+        "label": "applications_roi",
+        "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_applications_roi_p7.png",
+        "sha256": "c7f038702ad0eb4be36971cb72e498e837d3f10596c779a371e3f8f2776911f3",
+        "basis": "Actually opened with view_image during scientific revision on 2026-10-10."
+      }
+    ],
+    "carried_identical_previews": [
+      {
+        "report": "BAO_CAO_DO_AN_GOEMOTIONS_IEEE",
+        "page": 1,
+        "label": "title",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_DO_AN_GOEMOTIONS_IEEE_title_p1.png",
+        "sha256": "962a50475f21efccfd615efd47ca2f5fb55e1ba4ecfbc4989bb4e32fd849696f",
+        "basis": "Identical PNG SHA-256 to targeted page reviewed on 2026-10-09; progress PDF also identical when applicable."
+      },
+      {
+        "report": "BAI_BAO_GOEMOTIONS_IEEE",
+        "page": 1,
+        "label": "title",
+        "path": "reports\\execution\\final_report_preview\\BAI_BAO_GOEMOTIONS_IEEE_title_p1.png",
+        "sha256": "ea011b6428ecac22819cf9e26fe8bbd327ebf2bbc759d525452b7de2500d1360",
+        "basis": "Identical PNG SHA-256 to targeted page reviewed on 2026-10-09; progress PDF also identical when applicable."
+      },
+      {
+        "report": "BAO_CAO_TIEN_DO_1",
+        "page": 1,
+        "label": "title",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_TIEN_DO_1_title_p1.png",
+        "sha256": "70ce22ac5765550eb355f1cc1f37e2a99e8c3c9bb5c9b6f42f7fb121f4c90d40",
+        "basis": "Identical PNG SHA-256 to targeted page reviewed on 2026-10-09; progress PDF also identical when applicable."
+      },
+      {
+        "report": "BAO_CAO_TIEN_DO_1",
+        "page": 3,
+        "label": "roles",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_TIEN_DO_1_roles_p3.png",
+        "sha256": "bfd53807baeb5bac6c2d51d62eb6f9bd3f166ebb4f017d3bbd177b19068886eb",
+        "basis": "Identical PNG SHA-256 to targeted page reviewed on 2026-10-09; progress PDF also identical when applicable."
+      },
+      {
+        "report": "BAO_CAO_TIEN_DO_2",
+        "page": 1,
+        "label": "title",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_TIEN_DO_2_title_p1.png",
+        "sha256": "c39d32c344619841248a89f575a18b7c04207e49efb7c2f82172a3be77d58e47",
+        "basis": "Identical PNG SHA-256 to targeted page reviewed on 2026-10-09; progress PDF also identical when applicable."
+      },
+      {
+        "report": "BAO_CAO_TIEN_DO_2",
+        "page": 1,
+        "label": "results",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_TIEN_DO_2_results_p1.png",
+        "sha256": "c39d32c344619841248a89f575a18b7c04207e49efb7c2f82172a3be77d58e47",
+        "basis": "Identical PNG SHA-256 to targeted page reviewed on 2026-10-09; progress PDF also identical when applicable."
+      },
+      {
+        "report": "BAO_CAO_TIEN_DO_2",
+        "page": 9,
+        "label": "roles",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_TIEN_DO_2_roles_p9.png",
+        "sha256": "f44701d4e1487e9c46e5e78593a7d370abd845a14e1009587859afb3d93c1faf",
+        "basis": "Identical PNG SHA-256 to targeted page reviewed on 2026-10-09; progress PDF also identical when applicable."
+      },
+      {
+        "report": "BAO_CAO_TIEN_DO_2",
+        "page": 9,
+        "label": "huy_integration",
+        "path": "reports\\execution\\final_report_preview\\BAO_CAO_TIEN_DO_2_huy_integration_p9.png",
+        "sha256": "f44701d4e1487e9c46e5e78593a7d370abd845a14e1009587859afb3d93c1faf",
+        "basis": "Identical PNG SHA-256 to targeted page reviewed on 2026-10-09; progress PDF also identical when applicable."
+      }
+    ],
+    "carried_review_record": "reports/execution/final_report_verification_09_10_2026.json",
+    "carried_review_record_sha256": "9011f276c0e84329bb0d81528ce36eb3241d4dd9a25baae94d6893c107f50669",
+    "note": "Manually inspected the scientific additions, measured tradeoff paragraphs, key tables/cases, demo image, references and Huy integration continuation. No clipped tables, overlapping text or unreadable additions found in these pages. Full PDF text was checked automatically; visual review does not cover every page."
   },
   "limits": [
     "Administrative details and contribution percentages remain blank for the group to confirm.",
@@ -435,5 +683,24 @@
     "Timing includes Windows sleep interruptions; do not rank throughput from elapsed times.",
     "Huy's three-seed C3 validation study is separate from the main C3 study; never pool six seeds or substitute validation for test.",
     "No model, GPU, new inference, training or Word export performed by this verification script."
-  ]
+  ],
+  "scientific_content_revision": {
+    "client_date": "2026-10-10",
+    "timezone": "Asia/Bangkok",
+    "scope": "Applications/ROI, validation/test tradeoffs and hyperparameter evidence in both final reports",
+    "experiment_and_source_unchanged": true,
+    "checks": {
+      "reports/project_results/summary.json": true,
+      "reports/project_results/mean_std.csv": true,
+      "reports/project_results/per_label.csv": true,
+      "reports/project_results/rare_before_after.csv": true,
+      "reports/execution/frozen_protocols.json": true,
+      "reports/references_ieee.json": true,
+      "src/neural.py": true,
+      "src/baseline.py": true,
+      "scripts/train_transformer.py": true,
+      "data/processed/transformers/selected_model.json": true
+    },
+    "before_record": "reports\\execution\\scientific_revision_before_10_10_2026.json"
+  }
 }
