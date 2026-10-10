@@ -10,14 +10,14 @@ from unittest.mock import patch
 import numpy as np
 import pandas as pd
 
-from scripts.evaluate_baseline_test import evaluate_frozen_protocol
-from src.data import REVISION, sha256
+from scripts.baseline.evaluate_baseline_test import evaluate_frozen_protocol
+from src.datasets.goemotions import REVISION, sha256
 
 
 class FinalProtocolTest(unittest.TestCase):
     def test_missing_protocol_fails_before_test_data_are_opened(self):
         with tempfile.TemporaryDirectory() as temporary:
-            with patch("scripts.evaluate_baseline_test.load_goemotions") as loader:
+            with patch("scripts.baseline.evaluate_baseline_test.load_goemotions") as loader:
                 with self.assertRaises(FileNotFoundError):
                     evaluate_frozen_protocol(Path(temporary))
                 loader.assert_not_called()
@@ -33,8 +33,8 @@ class FinalProtocolTest(unittest.TestCase):
                         "runs": {v: {"folder": v, "artifact_sha256": {"model.joblib": "old"}}
                                  for v in ("standard", "balanced")}}
             (folder / "final_protocol.json").write_text(json.dumps(protocol))
-            with (patch("scripts.evaluate_baseline_test.load_goemotions") as loader,
-                  patch("scripts.evaluate_baseline_test.load_run_metadata",
+            with (patch("scripts.baseline.evaluate_baseline_test.load_goemotions") as loader,
+                  patch("scripts.baseline.evaluate_baseline_test.load_run_metadata",
                         return_value={"artifact_sha256": {"model.joblib": "changed"}})):
                 with self.assertRaises(ValueError):
                     evaluate_frozen_protocol(root)
@@ -66,9 +66,9 @@ class FinalProtocolTest(unittest.TestCase):
             frame = pd.DataFrame({"text": ["first", "second"], "labels": [[0], [1]],
                                   "id": ["x", "y"]})
             model = SimpleNamespace(predict_proba=lambda _: np.array([[0.9, 0.1], [0.1, 0.9]]))
-            with (patch("scripts.evaluate_baseline_test.load_goemotions", return_value=({"test": frame}, labels, {})) as loader,
-                  patch("scripts.evaluate_baseline_test.load_run_metadata", return_value={"artifact_sha256": {}}),
-                  patch("scripts.evaluate_baseline_test.joblib.load", return_value=model)):
+            with (patch("scripts.baseline.evaluate_baseline_test.load_goemotions", return_value=({"test": frame}, labels, {})) as loader,
+                  patch("scripts.baseline.evaluate_baseline_test.load_run_metadata", return_value={"artifact_sha256": {}}),
+                  patch("scripts.baseline.evaluate_baseline_test.joblib.load", return_value=model)):
                 first = evaluate_frozen_protocol(root)
                 second = evaluate_frozen_protocol(root)
                 self.assertEqual(len(first["results"]), 6)

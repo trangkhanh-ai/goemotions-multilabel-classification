@@ -1,7 +1,0 @@
-{
-  "seed": 123,
-  "run": "data/processed/c3_distilbert/full/seed_123",
-  "selection": "highest validation macro_f1 @0.5; smaller seed if tied; not winner among C1/C2/C3",
-  "architecture_winner": null,
-  "note": "Representative C3 only; C1/C2 results still required to select final demo."
-}

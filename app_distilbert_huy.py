@@ -4,9 +4,9 @@ import os
 import pandas as pd
 import numpy as np
 import streamlit as st
-from src.c3 import ROOT, load_bundle, predict_texts
-from src.c3 import read_json
-from src.c3_thresholds import predict_c3, load_c3_thresholds
+from src.models.distilbert_study import ROOT, load_bundle, predict_texts
+from src.models.distilbert_study import read_json
+from src.evaluation.distilbert_thresholds import predict_c3, load_c3_thresholds
 
 
 def run_demo_prediction(bundle, text, run=None, mode='fixed'):

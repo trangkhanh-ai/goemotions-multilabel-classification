@@ -1,0 +1,7 @@
+# Install a suitable CPU/CUDA PyTorch wheel first.
+-r baseline.txt
+torch>=2.8,<3
+transformers==4.57.6
+huggingface-hub==0.36.2
+safetensors==0.8.0
+gradio==5.50.0

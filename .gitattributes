@@ -1,35 +1,9 @@
-# Metadata snapshots retain their exact source bytes for SHA-256 verification.
-# This also prevents CRLF conversion when collaborators clone on Linux/macOS.
-reports/reproducibility/artifacts/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-# This CSV is cited by its exact byte hash in paired_examples_manifest.json.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.ipynb -text
+data/*.json -text
+configs/*.json -text
+# Metadata keeps exact bytes if shared outside this source branch.
+reports/reproducibility/artifacts/** -text
 reports/baseline_validation/paired_examples.csv -text
-# Verification records cite these files by their actual local byte hashes.
-# Preserve the bytes when collaborators read them from Git or clone elsewhere.
-reports/execution/*.log -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-notebooks/*.ipynb -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-reports/*NOI_DUNG.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-reports/BAO_CAO_TIEN_DO_*.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-reports/error_case_studies.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-reports/errors_*/examples.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-reports/references_ieee.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-# Sidecar checksums refer to these generated result/verification files too.
-reports/project_results/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-reports/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-reports/execution/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-reports/NOTION*.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-# Preserve Huy's source/evidence rules from the shared repository.
-src/data.py text eol=crlf
-src/metrics.py text eol=crlf
-src/baseline.py text eol=crlf
-src/c3.py text eol=lf
-src/c3_thresholds.py text eol=lf
-scripts/*distilbert*.py text eol=lf
-scripts/*c3*.py text eol=lf
-configs/distilbert_*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-# Historical captured outputs contain spaces/blank EOF lines; keep their hashes.
-reports/c3_distilbert/** -text whitespace=-blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
-docs/HUY_DISTILBERT.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-docs/TICH_HOP_C3_NHAT_HUY.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-reports/PHUONG_PHAP_C3_NHAT_HUY.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-/README.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
-app_distilbert_huy.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

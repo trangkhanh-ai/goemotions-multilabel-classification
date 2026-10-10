@@ -1,9 +1,0 @@
-{
-  "checked_at_utc": "2026-10-08T13:45:04.2280314Z",
-  "health_status": 200,
-  "server_pid": 29836,
-  "phase": "first_start",
-  "root_status": 200,
-  "launcher_pid": 14184,
-  "health_body": "ok"
-}

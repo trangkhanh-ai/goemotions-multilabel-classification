@@ -1,9 +1,41 @@
+# Python
 .venv/
-.venv-models/
-.venv-huy/
+.venv-*/
 __pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
 .ipynb_checkpoints/
+
+# Downloads and generated outputs
 data/raw/
 data/tokenizers/
 data/processed/
 data/cache/
+reports/
+artifacts/
+outputs/
+*.joblib
+*.safetensors
+*.pt
+*.pth
+
+# Academic documents and exports
+*.docx
+*.doc
+*.pdf
+*.tex
+*.html
+*.pptx
+*.xlsx
+
+# Local settings
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

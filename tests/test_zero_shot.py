@@ -9,9 +9,9 @@ from unittest.mock import Mock, patch
 
 import numpy as np
 
-from scripts.run_zero_shot import run
-from src.data import EXPECTED_ROWS, EXPECTED_SHA256, REVISION, sha256
-from src.zero_shot import (CHECKPOINT, HYPOTHESIS_TEMPLATE, map_pipeline_scores,
+from scripts.zero_shot.run_zero_shot import run
+from src.datasets.goemotions import EXPECTED_ROWS, EXPECTED_SHA256, REVISION, sha256
+from src.models.zero_shot import (CHECKPOINT, HYPOTHESIS_TEMPLATE, map_pipeline_scores,
                            predict_in_batches, validate_test_protocol, write_json, write_scores)
 
 
@@ -119,9 +119,9 @@ class ZeroShotTest(unittest.TestCase):
             write_json(root / "data/labels.json", [f"label_{i}" for i in range(28)])
             args = argparse.Namespace(split="test", device="cpu", batch_size=1, smoke=False,
                                       limit=None, protocol=None, revision="main")
-            with (patch("scripts.run_zero_shot.ROOT", root),
-                  patch("scripts.run_zero_shot.load_goemotions") as loader,
-                  patch("scripts.run_zero_shot.build_pipeline") as model):
+            with (patch("scripts.zero_shot.run_zero_shot.ROOT", root),
+                  patch("scripts.zero_shot.run_zero_shot.load_goemotions") as loader,
+                  patch("scripts.zero_shot.run_zero_shot.build_pipeline") as model):
                 with self.assertRaises(ValueError):
                     run(args)
                 loader.assert_not_called()

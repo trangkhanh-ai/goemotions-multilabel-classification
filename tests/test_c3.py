@@ -8,8 +8,8 @@ import numpy as np
 import torch
 from transformers import DistilBertConfig, DistilBertForSequenceClassification
 
-from src.c3 import ROOT, format_predictions, predict_texts, prepare_frames, read_json, validate_config, write_json
-from scripts.summarize_distilbert import summarize
+from src.models.distilbert_study import ROOT, format_predictions, predict_texts, prepare_frames, read_json, validate_config, write_json
+from scripts.distilbert.summarize_distilbert import summarize
 
 
 class C3Tests(unittest.TestCase):
@@ -57,7 +57,7 @@ class C3Tests(unittest.TestCase):
 
     def test_data_loader_reads_train_validation_only(self):
         config = read_json(ROOT / "configs/distilbert_pilot.json")
-        with patch("src.c3.load_goemotions", side_effect=RuntimeError("stop before IO")) as loader:
+        with patch("src.models.distilbert_study.load_goemotions", side_effect=RuntimeError("stop before IO")) as loader:
             with self.assertRaises(RuntimeError):
                 prepare_frames(config)
             self.assertEqual(loader.call_args.kwargs["splits"], ("train", "validation"))

@@ -1,6 +1,0 @@
-Seed 42: complete artifact already verified
-START seed 123; real training log: D:\Nam_3\HK1\NLP\LT\goemotions-multilabel-classification\reports\c3_distilbert\full\train_seed_123.log
-COMPLETE seed 123
-START seed 2026; real training log: D:\Nam_3\HK1\NLP\LT\goemotions-multilabel-classification\reports\c3_distilbert\full\train_seed_2026.log
-COMPLETE seed 2026
-PASS: all three C3 full seeds complete; no test evaluation.

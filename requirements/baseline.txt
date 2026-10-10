@@ -1,0 +1,7 @@
+# CPU baseline; versions used by the implementation.
+numpy==2.3.5
+pandas==2.3.3
+pyarrow==21.0.0
+scipy==1.16.3
+scikit-learn==1.7.2
+joblib==1.5.2

@@ -3,8 +3,8 @@ import unittest
 from unittest.mock import patch
 import numpy as np
 
-from src.data import REVISION
-from src.experiment import validate_protocol
+from src.datasets.goemotions import REVISION
+from src.evaluation.protocols import validate_protocol
 
 
 class ProtocolTests(unittest.TestCase):
@@ -20,8 +20,8 @@ class ProtocolTests(unittest.TestCase):
 
     def validate(self, value):
         metadata = {"method": "C", "checkpoint": "model", "model_revision": "abc"}
-        with patch("src.experiment.check_full_run", return_value=metadata), \
-             patch("src.experiment.sha256", return_value="digest"):
+        with patch("src.evaluation.protocols.check_full_run", return_value=metadata), \
+             patch("src.evaluation.protocols.sha256", return_value="digest"):
             return validate_protocol("fake", value, ["a", "b"])
 
     def test_complete_protocol(self):

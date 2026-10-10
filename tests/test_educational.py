@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from src.educational import simple_tfidf, fit_multilabel_logistic, sigmoid
+from src.learning.baseline_numpy import simple_tfidf, fit_multilabel_logistic, sigmoid
 
 
 class EducationalTests(unittest.TestCase):

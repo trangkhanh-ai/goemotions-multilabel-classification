@@ -11,7 +11,7 @@ from pathlib import Path
 
 import numpy as np
 
-from src.neural import load_demo_selection, resolve_device, configure_console
+from src.models.transformer import load_demo_selection, resolve_device, configure_console
 
 ROOT = Path(__file__).resolve().parent
 
@@ -77,7 +77,7 @@ def main():
     args = parser.parse_args()
     if not args.selection.is_file():
         parser.error("Chưa có best C. Chạy đủ ba kiến trúc × ba seed, rồi "
-                     "python -m scripts.select_best_transformer. Xem docs/TRANSFORMERS.md.")
+                     "python -m scripts.transformers.select_best_transformer. Xem docs/EXPERIMENTS.md.")
     import gradio as gr
     predictor = TransformerDemo(args.selection, args.device, args.thresholds)
     with gr.Blocks(title="GoEmotions — nhận diện cảm xúc") as demo:

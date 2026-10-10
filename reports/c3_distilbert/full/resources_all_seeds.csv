@@ -1,4 +1,0 @@
-seed,skipped_amp_steps,best_epoch,optimizer_steps,effective_batch_size,trainable_parameters,fit_and_validation_seconds,peak_cuda_allocated_mib,peak_cuda_reserved_mib,reload_max_abs_score_diff
-42,1,3,8141,16,66975004,1411.5812041999998,1363.134765625,1476.0,0.0
-123,1,3,8141,16,66975004,1383.677993899997,1363.791015625,1476.0,0.0
-2026,1,3,8141,16,66975004,1957.3098948999977,1363.791015625,1476.0,0.0

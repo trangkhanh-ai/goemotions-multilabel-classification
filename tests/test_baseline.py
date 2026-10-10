@@ -7,10 +7,10 @@ from pathlib import Path
 
 import numpy as np
 
-from src.baseline import (load_aligned_scores, tune_thresholds, tune_global_threshold,
+from src.models.baseline import (load_aligned_scores, tune_thresholds, tune_global_threshold,
                           label_error_pairs, load_run_metadata, load_thresholds)
-from src.data import REVISION, sha256
-from scripts.run_baseline import build_model
+from src.datasets.goemotions import REVISION, sha256
+from scripts.baseline.run_baseline import build_model
 
 
 class BaselineTest(unittest.TestCase):

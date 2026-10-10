@@ -1,4 +1,0 @@
-﻿left_split,right_split,shared_ids,shared_exact_texts,left_rows_exact,right_rows_exact,shared_normalized_texts,right_rows_normalized
-train,validation,0,41,84,43,46,49
-train,test,0,32,79,37,37,42
-validation,test,0,10,10,13,11,14

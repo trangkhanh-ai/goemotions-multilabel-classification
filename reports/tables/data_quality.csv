@@ -1,4 +1,0 @@
-﻿split,n_samples,missing_text,missing_id,blank_text,empty_labels,repeated_labels,invalid_labels,unique_ids,unique_texts,duplicate_id_extra_rows,duplicate_text_extra_rows
-train,43410,0,0,0,0,0,0,43410,43227,0,183
-validation,5426,0,0,0,0,0,0,5426,5423,0,3
-test,5427,0,0,0,0,0,0,5427,5421,0,6

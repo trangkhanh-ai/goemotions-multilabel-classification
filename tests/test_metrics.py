@@ -4,7 +4,7 @@ import unittest
 
 import numpy as np
 
-from src.metrics import evaluate_multilabel
+from src.evaluation.metrics import evaluate_multilabel
 
 
 class MetricsTest(unittest.TestCase):

@@ -1,0 +1,18 @@
+name: Báo lỗi
+description: Gửi lỗi cùng môi trường và lệnh tái hiện.
+title: "[Bug] "
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Môi trường
+      description: Python, hệ điều hành, CPU/GPU và phiên bản thư viện liên quan.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Lệnh và lỗi
+      description: Lệnh từ gốc repo, kết quả mong đợi và lỗi thực tế.
+    validations:
+      required: true

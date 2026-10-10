@@ -8,10 +8,10 @@ from unittest.mock import patch
 import numpy as np
 import pandas as pd
 
-from scripts.analyze_project_errors import (analyze_arrays, analyze_project, checked_threshold,
+from scripts.analysis.analyze_project_errors import (analyze_arrays, analyze_project, checked_threshold,
                                             error_masks, representative_run)
-from src.data import REVISION, sha256
-from src.experiment import save_json
+from src.datasets.goemotions import REVISION, sha256
+from src.evaluation.protocols import save_json
 
 
 class ProjectErrorsTest(unittest.TestCase):
@@ -76,8 +76,8 @@ class ProjectErrorsTest(unittest.TestCase):
             (root / "data").mkdir()
             save_json(root / "data/labels.json", ["a", "b"])
             run = {"run_dir": "representative", "seed": 42, "architecture": "bert", "label_names": ["a", "b"]}
-            with (patch("scripts.analyze_project_errors.load_representatives", return_value=({"bert": run}, [])),
-                  patch("scripts.analyze_project_errors.load_goemotions") as loader):
+            with (patch("scripts.analysis.analyze_project_errors.load_representatives", return_value=({"bert": run}, [])),
+                  patch("scripts.analysis.analyze_project_errors.load_goemotions") as loader):
                 with self.assertRaises(FileNotFoundError):
                     analyze_project(root, split="test")
                 loader.assert_not_called()
@@ -97,7 +97,7 @@ class ProjectErrorsTest(unittest.TestCase):
             save_json(folder / "test_results.json", {"split": "test", "method": "C", "architecture": "bert",
                                                      "seed": 42, "protocol_sha256": sha256(folder / "final_protocol.json"),
                                                      "scores_sha256": "wrong", "results": [{"threshold_mode": "fixed"}]})
-            with patch("scripts.analyze_project_errors.validate_protocol"):
+            with patch("scripts.analysis.analyze_project_errors.validate_protocol"):
                 with self.assertRaises(ValueError):
                     checked_threshold(root, run, ["a", "b"], "test", "fixed")
 
@@ -128,9 +128,9 @@ class ProjectErrorsTest(unittest.TestCase):
             loader_result = ({"train": train, "validation": validation}, labels,
                              {"files": [{"split": "train", "sha256": "train hash"},
                                         {"split": "validation", "sha256": "validation hash"}]})
-            with (patch("scripts.analyze_project_errors.load_representatives", return_value=(runs, [])),
-                  patch("scripts.analyze_project_errors.load_goemotions", return_value=loader_result) as loader,
-                  patch("scripts.analyze_project_errors.load_aligned_scores", return_value=np.array([[0.8, 0.1], [0.1, 0.8]]))):
+            with (patch("scripts.analysis.analyze_project_errors.load_representatives", return_value=(runs, [])),
+                  patch("scripts.analysis.analyze_project_errors.load_goemotions", return_value=loader_result) as loader,
+                  patch("scripts.analysis.analyze_project_errors.load_aligned_scores", return_value=np.array([[0.8, 0.1], [0.1, 0.8]]))):
                 manifest = analyze_project(root)
                 loader.assert_called_once_with(root, write_metadata=False, splits=("train", "validation"))
             self.assertEqual(manifest["split"], "validation")

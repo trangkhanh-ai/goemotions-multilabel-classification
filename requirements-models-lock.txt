@@ -1,5 +1,5 @@
 # Các thư viện đã dùng cho chạy mô hình trên Windows / Python 3.13.9.
-# Cài torch CUDA trước bằng lệnh trong docs/CHAY_THUC_NGHIEM.md.
+# Cài torch CUDA trước bằng lệnh trong docs/GETTING_STARTED.md.
 -r requirements-baseline.txt
 scipy==1.16.3
 torch==2.13.0

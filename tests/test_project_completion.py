@@ -9,9 +9,10 @@ from unittest.mock import Mock, patch
 import numpy as np
 import pandas as pd
 
-from scripts import evaluate_transformer_test, summarize_project
-from src.experiment import save_json
-from src.neural import METRIC_NAMES, run_folder
+from scripts.transformers import evaluate_transformer_test
+from scripts.analysis import summarize_project
+from src.evaluation.protocols import save_json
+from src.models.transformer import METRIC_NAMES, run_folder
 
 
 class ProjectCompletionTest(unittest.TestCase):
@@ -49,10 +50,10 @@ class ProjectCompletionTest(unittest.TestCase):
                   patch.object(evaluate_transformer_test, "validate_protocol", return_value=metadata),
                   patch.object(evaluate_transformer_test, "load_goemotions", return_value=({"test": frame}, labels, {})),
                   patch.dict("sys.modules", {"torch": torch, "transformers": transformers}),
-                  patch("src.neural.resolve_device", return_value="cpu"),
-                  patch("scripts.train_transformer.encoded_dataset", return_value=("mock-dataset", None)),
-                  patch("scripts.train_transformer.predict_scores", return_value=scores) as predictor):
-                with patch("src.zero_shot.np.savez_compressed", side_effect=interrupt_write):
+                  patch("src.models.transformer.resolve_device", return_value="cpu"),
+                  patch("scripts.transformers.train_transformer.encoded_dataset", return_value=("mock-dataset", None)),
+                  patch("scripts.transformers.train_transformer.predict_scores", return_value=scores) as predictor):
+                with patch("src.models.zero_shot.np.savez_compressed", side_effect=interrupt_write):
                     with self.assertRaisesRegex(OSError, "write interrupted"):
                         evaluate_transformer_test.evaluate_run(folder, protocol_path, device="cpu")
                 self.assertFalse((folder / "test_scores.npz").exists())

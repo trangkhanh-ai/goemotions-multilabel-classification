@@ -7,12 +7,12 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from scripts.export_project_analysis import (aggregate_c, collect_training_costs, export_analysis,
+from scripts.analysis.export_project_analysis import (aggregate_c, collect_training_costs, export_analysis,
                                              export_figures, frozen_protocol, make_record,
                                              rare_comparisons, write_analysis_markdown)
-from src.data import EXPECTED_ROWS, REVISION, sha256
-from src.experiment import save_json
-from src.neural import ARCHITECTURES, run_folder
+from src.datasets.goemotions import EXPECTED_ROWS, REVISION, sha256
+from src.evaluation.protocols import save_json
+from src.models.transformer import ARCHITECTURES, run_folder
 
 
 def synthetic_metric(labels, split, f1):

@@ -10,8 +10,8 @@ from unittest.mock import patch
 
 import numpy as np
 
-from src.data import EXPECTED_ROWS, REVISION, sha256
-from src.neural import (METRIC_NAMES, artifact_hashes, load_demo_selection,
+from src.datasets.goemotions import EXPECTED_ROWS, REVISION, sha256
+from src.models.transformer import (METRIC_NAMES, artifact_hashes, load_demo_selection,
                         load_transformer_run, multilabel_loss, positive_weights,
                         summarize_architectures, training_config, write_json)
 
@@ -71,7 +71,7 @@ class TransformerTest(unittest.TestCase):
     @unittest.skipUnless(importlib.util.find_spec("torch"), "Collate test cần torch")
     def test_dynamic_padding_trims_only_padding_and_keeps_28_targets(self):
         import torch
-        from scripts.train_transformer import trim_padding_collate
+        from scripts.transformers.train_transformer import trim_padding_collate
         labels = torch.arange(28, dtype=torch.float32)
         items = [
             {"input_ids": torch.tensor([2, 3, 0, 0, 0, 0]),
@@ -164,8 +164,8 @@ class TransformerTest(unittest.TestCase):
             summarize_architectures(bad)
 
     def test_incomplete_resume_requests_explicit_restart_before_loading_models(self):
-        from scripts import train_transformer
-        from src.neural import run_folder
+        from scripts.transformers import train_transformer
+        from src.models.transformer import run_folder
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
             folder = run_folder(root, "bert", 42)

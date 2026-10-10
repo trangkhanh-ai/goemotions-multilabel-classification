@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68,<81"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "goemotions-course"
+version = "0.1.0"
+description = "Readable multi-label GoEmotions baselines and Transformer experiments"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+authors = [{name = "nguyndy", email = "baoduynguyen1612@gmail.com"}]
+dependencies = ["numpy==2.3.5", "pandas==2.3.3", "pyarrow==21.0.0", "scipy==1.16.3", "scikit-learn==1.7.2", "joblib==1.5.2"]
+
+[project.optional-dependencies]
+eda = ["matplotlib>=3.10,<4", "seaborn>=0.13,<0.14", "nbformat==5.10.4", "nbclient>=0.10,<0.12", "nbconvert>=7.16,<8", "ipykernel>=6.31,<8", "tokenizers>=0.22,<0.24", "tabulate>=0.9,<1"]
+transformers = ["torch>=2.8,<3", "transformers==4.57.6", "huggingface-hub==0.36.2", "safetensors==0.8.0", "gradio==5.50.0"]
+study = ["torch>=2.8,<3", "transformers==4.57.6", "streamlit==1.55.0", "tabulate>=0.9,<1"]
+notebooks = ["jupyterlab>=4,<5", "nbformat==5.10.4", "nbclient>=0.10,<0.12", "nbconvert>=7.16,<8", "ipykernel>=6.31,<8"]
+dev = ["matplotlib>=3.10,<4", "nbformat==5.10.4"]
+
+[project.urls]
+Repository = "https://github.com/trangkhanh-ai/goemotions-multilabel-classification"
+Documentation = "https://github.com/dzyuu1612/goemotions-multilabel-classification/tree/codex/source-only-repo/docs"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src", "src.*", "scripts", "scripts.*", "examples", "examples.*"]
+namespaces = false

@@ -1,4 +1,0 @@
-﻿split,duplicate_text_groups,rows_in_duplicate_groups,duplicate_extra_rows,duplicate_groups_with_different_labels
-train,118,301,183,58
-validation,2,5,3,1
-test,5,11,6,1
