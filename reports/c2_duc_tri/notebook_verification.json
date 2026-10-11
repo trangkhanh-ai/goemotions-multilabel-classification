@@ -1,0 +1,21 @@
+{
+  "notebook": "notebooks/roberta_duc_tri.ipynb",
+  "sha256": "540571efed6adf15d060072dc4e0c5cf78725aa213898118252649d2981773ab",
+  "source_commit": "3c44309ec287d3a2926acdd67a9b6a18da11a4d2",
+  "verified_date_utc": "2026-10-11",
+  "cells": 50,
+  "code_cells_executed": 25,
+  "saved_error_outputs": 0,
+  "png_charts": 4,
+  "validation": "nbformat schema and Python builder syntax passed",
+  "related_unit_tests": {
+    "passed": 21,
+    "skipped": 1,
+    "skip_reason": "Transformers unavailable in verification kernel"
+  },
+  "output_provenance": "Group benchmark snapshot plus executed teaching examples; not fresh RoBERTa training.",
+  "fresh_fine_tuning_executed": false,
+  "real_roberta_forward_or_inference_executed": false,
+  "heavy_run_flags_enabled_by_default": false,
+  "author": "Ductri2006"
+}

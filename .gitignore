@@ -7,3 +7,4 @@ data/raw/
 data/tokenizers/
 data/processed/
 data/cache/
+notebook_runtime/

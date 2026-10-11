@@ -16,6 +16,7 @@ Nhóm còn tự đọc/bảo vệ, điền thông tin hành chính và đóng g�
 - Báo cáo tiến độ 1: [Word](reports/BAO_CAO_TIEN_DO_1.docx) · [PDF](reports/BAO_CAO_TIEN_DO_1.pdf); tiến độ 2: [Word](reports/BAO_CAO_TIEN_DO_2.docx) · [PDF](reports/BAO_CAO_TIEN_DO_2.pdf). Số liệu theo bản xuất; có file không xác nhận đã nộp.
 - [Thứ tự đọc toàn đồ án](docs/THU_TU_DOC_DO_AN.md) · [Cách chạy](docs/CHAY_THUC_NGHIEM.md) · [Đối chiếu yêu cầu cô](docs/DOI_CHIEU_YEU_CAU_CO.md).
 - [Notebook B](notebooks/zero_shot.ipynb) · [Notebook C](notebooks/transformers.ipynb) · [Demo C](app.py).
+- [Notebook RoBERTa C2 của Đức Trí](notebooks/roberta_duc_tri.ipynb) · [Hướng dẫn học và chạy C2](docs/DUC_TRI_ROBERTA.md).
 - [Bảng số thực tế](reports/project_results/RESULTS.md) · [72 bản ghi](reports/project_results/all_runs.csv) · [36 dòng tổng hợp](reports/project_results/mean_std.csv); C dùng sample std `ddof=1`, A/B không tạo std từ một run.
 - [95 JSON cấu hình/revision/hash/protocol](reports/reproducibility/README.md) · [Cách đối chiếu](docs/REPRODUCIBILITY.md).
 - [69/69 tests ngày 08/10 và notebook A/B/C đã chạy](reports/verification_project.json) · [Bằng chứng notebook](reports/execution/notebook_verification.json).
